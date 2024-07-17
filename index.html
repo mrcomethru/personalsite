@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Koulen" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="module5assign.css">
+    <title>LTEC 3260 - Kevin Tate - Assignment 5 - Landing Page/index (1/5)</title>
+</head>
+<body>
+<!-- Image map to return back to home page -->
+<map name="text">
+	<area shape = "rect" coords="1,1,200,100" alt = "Banner" href="index.html">
+</map>
+<!-- Site Contents -->
+<div class="container">
+        <div class="navbarsection">
+            <nav class="navbar">
+				
+              <figure>
+                    <img src="bannertop.png" class="banner" alt="Banner that reads: Kevin Tate" usemap="#text" style="z-index: 2">
+                </figure>
+				
+                <ul class="menu" id="menu">
+                    <li><div class="contact"><div class="contacttext"><a href="contact.html">Contact</a></div></div></li>
+                    <li><a href="experience.html" class="underline-on-hover">Experience</a></li>
+                    <li><a href="skills.html" class="underline-on-hover">Skills</a></li>
+                    <li><a href="education.html" class="underline-on-hover">Education</a></li>
+                </ul>
+				<div class = "coverbar"></div>
+                <div class="hamburgercontainer">
+                    <div class="hamburger">
+                        <div class="hamburger-menu" onclick="toggleAnimation(); toggleMenu();">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+                </div>
+				
+            </nav>
+        </div>
+        <div class="tabfiller">
+        </div>
+		
+		<div class="imagesection">
+		<div class="bannertext">
+		A little about me.
+		</div>	
+		
+		
+    	<img id="gif" class="gif-slides" src="palm1.gif" alt="GIF Slideshow">
+		
+		</div>
+</div>
+<div class="container2">
+		<div class="fillercolumnleft">
+		<!--Filler Column-->
+		</div>
+		<div class="centralcolumn">
+			<h1>About me</h1>
+			<div class="columntext">
+			Welcome to my little corner of the internet. I'm a full-time undergraduate student attending the Univeristy of North Texas. I've always had a knack for creating, discovering, and learning how to do new things on my own. Here's a little more about me..
+			</div>
+			<div class="imagecontainer">
+			<img src="graphic1.png" class="imgdesign" alt="A black and white picture of me over a gradient">
+			</div>
+		  <h1>What's to come</h1>
+		  <div class="columntext">
+			Right now this site is still in development with plans on updating it as needed.
+			</div>
+			
+			
+		</div>
+		<div class="fillercolumnright">
+		<!--Filler Column-->
+		</div>
+    </div>
+<div class="rowbottom">
+	<h4>@Kevin Tate</h4>
+	<a href="mailto:Kevintate2@my.unt.edu" > Email </a>
+</div>
+<!-- Toggle menu-->
+    <script>
+        function toggleAnimation() {
+            var menu = document.querySelector('.hamburger-menu');
+            menu.classList.toggle('active');
+        }
+
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+<!-- gif slide show-->
+<script>
+var gifs = [
+    { src: "palm1.gif", duration: 1700 },   
+    { src: "bridge2.gif", duration: 6000 }, 
+    { src: "palm2.gif", duration: 4000 },   
+    { src: "car.gif", duration: 2000 }      
+];
+
+var index = 0;
+
+
+function changeGif() {
+    document.getElementById("gif").src = gifs[index].src;
+    setTimeout(changeGif, gifs[index].duration); 
+    index = (index + 1) % gifs.length; 
+}
+
+
+changeGif();
+	
+	window.addEventListener('scroll', function() {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        var maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        var blurValue = (scrollTop / maxScroll) * 10; 
+
+        
+        document.getElementById('gif').style.filter = 'blur(' + blurValue + 'px)';
+    });
+</script>
+</body>
+</html>
